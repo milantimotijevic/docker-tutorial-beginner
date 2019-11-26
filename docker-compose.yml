@@ -1,0 +1,17 @@
+version: '3'
+services:
+  random-service:
+    build:
+      context: .
+    container_name: 'random-service-container'
+    ports:
+      - '3000:3000'
+  database:
+    image: 'mongo'
+    container_name: 'mongo-container'
+    environment:
+      - MONGO_INITDB_DATABASE=excessively_cool_db
+      - MONGO_INITDB_ROOT_USERNAME=sauron
+      - MONGO_INITDB_ROOT_PASSWORD=iseeyou
+    ports:
+      - '27017-27019:27017-27019'
